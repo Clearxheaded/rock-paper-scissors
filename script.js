@@ -44,19 +44,21 @@ function getComputerChoice() {
     return "scissors";
 }
 
-function playRound(playerSelection) {
+function playRound(playerSelection, resultsDiv) {
     const computerSelection = getComputerChoice();
+    let resultMessage = '';
     if ((playerSelection === 'rock' && computerSelection === 'scissors') 
         || (playerSelection === 'paper' && computerSelection === 'rock') 
         || (playerSelection === 'scissors' && computerSelection === 'paper')) {
-            console.log(`You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
+            resultMessage = `You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
     } 
     else if (playerSelection === computerSelection) {
-        console.log(`It's a tie! Play again.`);
+        resultMessage = `It's a tie! Play again.`;
     } 
     else {
-        console.log(`You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
+        resultMessage = `You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
     }
+    resultsDiv.textContent = resultMessage;
 }
 
 
@@ -64,17 +66,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const rockButton = document.querySelector("#rock-btn");
     const paperButton = document.querySelector("#paper-btn");
     const scissorsButton = document.querySelector("#scissors-btn");
+    const resultsDiv = document.querySelector("#results");
 
     rockButton.addEventListener("click", () => {
-        playRound("rock");
+        playRound("rock", resultsDiv);
     });
 
     paperButton.addEventListener("click", () => {
-        playRound("paper");
+        playRound("paper", resultsDiv);
     });
 
     scissorsButton.addEventListener("click", () => {
-        playRound("scissors");
+        playRound("scissors", resultsDiv);
     });
 });
 
