@@ -19,14 +19,14 @@ function playRound(playerSelection, resultsDiv) {
         || (playerSelection === 'paper' && computerSelection === 'rock') 
         || (playerSelection === 'scissors' && computerSelection === 'paper')) {
             playerScore++;
-            resultMessage = `You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
+            resultMessage = `You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}.`;
     } 
     else if (playerSelection === computerSelection) {
         resultMessage = `It's a tie! Play again.`;
     } 
     else {
         computerScore++;
-        resultMessage = `You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
+        resultMessage = `You lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}.`;
     }
 
     if (playerScore === 5) {
@@ -41,8 +41,7 @@ function playRound(playerSelection, resultsDiv) {
     }
     else {
         resultMessage += `
-    Score:
-    Player: ${playerScore} Computer: ${computerScore}`;
+    Player: ${playerScore} --- Computer: ${computerScore}`;
     }
     resultsDiv.textContent = resultMessage;
 }

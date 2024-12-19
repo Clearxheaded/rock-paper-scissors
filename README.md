@@ -1,2 +1,2 @@
 # Simple rock, paper, scissors game
-This game is to be entirely played in the console. Simple use of javascript
+Used simple js, html and css to make a rock paper scissors webpage with basic UI.
